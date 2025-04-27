@@ -55,15 +55,11 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative">
-              <img 
-                src="https://images.pexels.com/photos/8844329/pexels-photo-8844329.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                alt="Medical Student Studying" 
-                className="rounded-lg shadow-lg mx-auto"
-              />
-              <div className="absolute -bottom-5 -left-5 bg-white p-4 rounded-lg shadow-lg">
+              
+              <div className="absolute -bottom-5 -left-5 bg-white p-4 rounded-lg shadow-lg border border-teal-200">
                 <div className="flex items-center">
                   <div className="bg-green-500 h-3 w-3 rounded-full mr-2"></div>
-                  <span className="text-navy-900 font-bold">98% Success Rate</span>
+                  <span className="text-teal-600 font-bold">98% Success Rate</span>
                 </div>
               </div>
             </div>

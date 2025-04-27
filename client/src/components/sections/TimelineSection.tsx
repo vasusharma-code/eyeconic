@@ -26,7 +26,7 @@ const timelineItems = [
 
 const TimelineSection: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="section-title">
           <motion.h2
@@ -43,42 +43,49 @@ const TimelineSection: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            The journey from an idea to a mentorship movement that's transforming medical education.
+            Eyeconic by Dr. Lalla was born out of a simple yet powerful insight: every topper's journey is unique — and so is every student's struggle.
           </motion.p>
         </div>
-        
-        <div className="relative mt-16 pl-8">
+        <div className="relative flex flex-col items-center mt-16">
           {/* Timeline Line */}
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-teal-200 ml-4"></div>
-          
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-teal-200 -translate-x-1/2 z-0"></div>
           {/* Timeline Items */}
           {timelineItems.map((item, index) => (
-            <motion.div 
-              key={index}
-              className={`relative mb-16 ${index % 2 === 0 ? 'md:ml-0 md:mr-auto md:pr-8' : 'md:ml-auto md:mr-0 md:pl-8'} md:w-1/2`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-            >
-              {/* Year Circle */}
-              <div className="absolute left-0 w-8 h-8 bg-teal-500 rounded-full text-white flex items-center justify-center -ml-12 text-sm font-bold">
-                {index === timelineItems.length - 1 ? (
-                  <div className="w-4 h-4 bg-white rounded-full"></div>
-                ) : (
-                  item.year.slice(-2)
+            <div key={index} className="w-full flex flex-col md:flex-row items-center mb-16 relative z-10">
+              {/* Left side (even index) */}
+              <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : ''} hidden md:block`}>
+                {index % 2 === 0 && (
+                  <>
+                    <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-2">{item.title}</h3>
+                    <p className="text-gray-700 font-semibold">{item.description}</p>
+                  </>
                 )}
               </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="inline-block bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-sm font-medium mb-2">
+              {/* Year Circle */}
+              <div className="flex flex-col items-center md:w-0 w-full mb-4 md:mb-0">
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-800 text-white rounded-full font-bold text-lg border-4 border-white shadow-md">
                   {item.year}
                 </div>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
               </div>
-            </motion.div>
+              {/* Right side (odd index) */}
+              <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:pl-12 md:text-left' : ''} hidden md:block`}>
+                {index % 2 !== 0 && (
+                  <>
+                    <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-2">{item.title}</h3>
+                    <p className="text-gray-700 font-semibold">{item.description}</p>
+                  </>
+                )}
+              </div>
+              {/* Mobile: always show content below year */}
+              <div className="w-full md:hidden text-center mt-4">
+                <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-2">{item.title}</h3>
+                <p className="text-gray-700 font-semibold">{item.description}</p>
+              </div>
+            </div>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <span className="text-blue-800 text-xl italic font-semibold">"A movement more than a brand, a community more than a course."</span>
         </div>
       </div>
     </section>

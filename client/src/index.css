@@ -6,10 +6,13 @@
   html {
     font-family: 'Inter', system-ui, sans-serif;
     scroll-behavior: smooth;
+    /* Prevent horizontal scroll */
+    overflow-x: hidden;
   }
 
   body {
-    @apply text-gray-800;
+    @apply text-gray-800 overflow-x-hidden;
+    /* Prevent horizontal scroll */
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -35,7 +38,7 @@
 
 @layer components {
   .container {
-    @apply px-4 mx-auto max-w-7xl;
+    @apply px-4 mx-auto max-w-7xl w-full max-w-full;
   }
 
   .btn {
