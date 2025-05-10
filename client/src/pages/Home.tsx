@@ -7,6 +7,9 @@ import WhyItMattersSection from '../components/sections/WhyItMattersSection';
 import OfferingsSection from '../components/sections/OfferingsSection';
 import CTASection from '../components/sections/CTASection';
 import CountdownTimer from '../components/sections/CountdownTimer';
+import CoursesSection from '../components/sections/CoursesSection';
+import MentorsSection from '../components/sections/MentorsSection';
+import FAQSection from '../components/sections/FAQSection';
 
 const Home: React.FC = () => {
   return (
@@ -17,7 +20,10 @@ const Home: React.FC = () => {
       <CountdownTimer />
       <TimelineSection />
       <WhyItMattersSection />
+      <CoursesSection />
+      <MentorsSection />
       <OfferingsSection />
+      <FAQSection />
       <CTASection />
     </>
   );

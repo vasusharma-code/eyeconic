@@ -21,11 +21,11 @@ const HeroSection: React.FC = () => {
               you with the tools and guidance needed to succeed.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <a href="#contact" className="btn bg-white text-teal-500 hover:bg-teal-50 transition-colors">
-                Book a Free Consultation
+              <a href="#courses" className="btn bg-white text-teal-500 hover:bg-teal-50 transition-colors scroll-smooth">
+                Join Now
               </a>
-              <a href="#programs" className="btn bg-transparent border border-white hover:bg-teal-400 transition-colors flex items-center">
-                Explore Programs <ArrowRight size={16} className="ml-2" />
+              <a href="#about" className="btn bg-transparent border border-white hover:bg-teal-400 transition-colors flex items-center scroll-smooth">
+                Know More <ArrowRight size={16} className="ml-2" />
               </a>
             </div>
             <div className="mt-8 flex items-center">
