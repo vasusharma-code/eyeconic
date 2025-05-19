@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import lalla from '../../assets/PROFILE DR LALLA.jpg'
+import chandan from '../../assets/mr_chandan_profile.jpg';
 
 const mentors = [
   {
@@ -11,7 +13,7 @@ const mentors = [
 
 His approach combines meticulous strategy, empathetic mentorship, and motivational psychology—empowering students not only to achieve academic excellence but also to build confidence, resilience, and a lifelong passion for medicine.`,
     quote: "Your potential is limitless when matched with the right guidance. Let's unleash it together.",
-    image: '/images/mentors/dr-lalla.jpg'
+    image: lalla
   },
   {
     id: 'kritika-swami',
@@ -46,7 +48,7 @@ At Eyeconic, he works directly with Dr. Gourav Lalla and closely mentors our dyn
       'Hands-on involvement in scaling the Eyeconic vision without losing the personal touch'
     ],
     quote: "The right structure unlocks the highest potential. At Eyeconic, we're not just managing operations—we're nurturing future doctors, and that deserves excellence at every level.",
-    image: '/images/mentors/chandan.jpg'
+    image: chandan
   }
 ];
 

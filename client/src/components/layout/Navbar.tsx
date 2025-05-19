@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LoginModal from '../auth/LoginModal';
 import SignupModal from '../auth/SignupModal';
+import logo from '../../assets/Asset 1-Photoroom.jpg'; // <-- Add your logo file here
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,15 +27,18 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold text-teal-700">Eyeconic</Link>
+        <Link to="/" className="flex items-center space-x-2 text-2xl font-bold text-teal-700">
+          <img src={logo} alt="Eyeconic Logo" className="h-8 w-8 object-contain" />
+          <span>Eyeconic</span>
+        </Link>
         <div className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-8">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/courses">Courses</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/mentors">Mentors</Link></li>
-            <li><Link to="/testimonials">Testimonials</Link></li>
-            <li><Link to="/faqs">FAQs</Link></li>
+            <li><a href="#home" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">Home</a></li>
+            <li><a href="#courses" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">Courses</a></li>
+            <li><a href="#about" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">About</a></li>
+            <li><a href="#mentors" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">Mentors</a></li>
+            <li><a href="#testimonials" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">Testimonials</a></li>
+            <li><a href="#contact" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">Contact</a></li>
           </ul>
           {isLoggedIn ? (
             <Link to="/dashboard" className="btn btn-outline">Dashboard</Link>
@@ -60,12 +64,12 @@ const Navbar: React.FC = () => {
         <div className="md:hidden bg-white">
           <div className="container mx-auto px-4 py-4">
             <ul className="space-y-4">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/courses">Courses</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/mentors">Mentors</Link></li>
-              <li><Link to="/testimonials">Testimonials</Link></li>
-              <li><Link to="/faqs">FAQs</Link></li>
+              <li><a href="#home" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">Home</a></li>
+              <li><a href="#courses" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">Courses</a></li>
+              <li><a href="#about" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">About</a></li>
+              <li><a href="#mentors" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">Mentors</a></li>
+              <li><a href="#testimonials" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">Testimonials</a></li>
+              <li><a href="#contact" className="text-navy-900 hover:text-teal-500 font-medium transition-colors">Contact</a></li>
             </ul>
             <div className="mt-6 space-y-4">
               {isLoggedIn ? (

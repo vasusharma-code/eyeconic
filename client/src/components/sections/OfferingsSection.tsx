@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Video, CheckSquare, BarChart, LineChart } from 'lucide-react';
+import mentor from '../../assets/Mentorship.jpg';
+import quiz from '../../assets/weekly quiz.jpg';
+import gt from '../../assets/GTAnalysis.jpg';
+import progress from '../../assets/PROGRESS TRACKING.jpg';
+import live from '../../assets/Live.jpg'
 
 const tabItems = [
   {
@@ -34,35 +39,55 @@ const tabContent = {
   "1-on-1": {
     title: "1-on-1 Mentorship",
     description: "Personalized guidance from Dr. Lalla to address your specific needs and challenges. Our mentors help create custom study plans, track your progress, and adapt strategies for optimal results.",
-    image: "https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: mentor
   },
   "live-sessions": {
     title: "Live Sessions",
     description: "Interactive live classes covering high-yield topics, recent exam patterns, and strategic approaches to difficult subjects. Participate in Q&A sessions with expert faculty.",
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: live
   },
   "daily-tasks": {
     title: "Daily Tasks & Quizzes",
     description: "Structured daily assignments and quizzes to reinforce learning and maintain consistent progress. Regular assessment helps identify strengths and areas needing improvement.",
-    image: "https://images.pexels.com/photos/8199562/pexels-photo-8199562.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: quiz
   },
   "gt-analysis": {
     title: "Grand Test Analysis",
     description: "Comprehensive analysis of your test performance with actionable insights. Our detailed reports help you understand patterns in your mistakes and develop targeted improvement strategies.",
-    image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: gt
   },
   "progress": {
     title: "Progress Tracking",
     description: "Small group discussions and performance tracking to keep you motivated and accountable throughout your preparation journey. Regular feedback sessions help adjust your approach as needed.",
-    image: "https://images.pexels.com/photos/7710027/pexels-photo-7710027.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: progress
   }
 };
 
 const OfferingsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("1-on-1");
+  const [modalImg, setModalImg] = useState<string | null>(null);
+  const [modalAlt, setModalAlt] = useState<string>("");
 
   return (
     <section id="programs" className="py-20 bg-gray-50">
+      {/* Modal for enlarged image */}
+      {modalImg && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+          <div className="relative bg-white rounded-lg shadow-lg max-w-2xl w-full flex flex-col items-center">
+            <button
+              className="absolute top-2 right-2 bg-red-600 text-white rounded-full px-4 py-2 font-bold text-lg hover:bg-red-700 transition"
+              onClick={() => setModalImg(null)}
+            >
+              Close
+            </button>
+            <img
+              src={modalImg}
+              alt={modalAlt}
+              className="w-full h-[60vh] object-contain rounded-lg"
+            />
+          </div>
+        </div>
+      )}
       <div className="container mx-auto px-4">
         <div className="section-title">
           <motion.h2
@@ -115,7 +140,11 @@ const OfferingsSection: React.FC = () => {
                 <img 
                   src={tabContent[activeTab].image} 
                   alt={tabContent[activeTab].title} 
-                  className="rounded-lg shadow-md w-full h-72 object-cover"
+                  className="rounded-lg shadow-md w-full h-72 object-cover cursor-pointer"
+                  onClick={() => {
+                    setModalImg(tabContent[activeTab].image);
+                    setModalAlt(tabContent[activeTab].title);
+                  }}
                 />
               </div>
               
